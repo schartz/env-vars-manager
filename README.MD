@@ -56,5 +56,19 @@ Each time an update requires some keys to be added to updated, it is a headache 
 
 **envVarMgr** is a command line tool which will keep all your key-values at on place, from where you can export the file for a particular environment.
 
-It is a work in progress.
+It is a work in progress.  
+
+It is not ready to use now. 
+
 More updated shall follow soon.
+
+## Build and run the simple test driver
+```bash
+git clone https://github.com/schartz/env-vars-manager.git
+cd env-vars-manager
+mkdir build
+cd build
+cmake ..
+make
+./envVarMgr
+```
