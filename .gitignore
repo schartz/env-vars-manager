@@ -31,5 +31,9 @@
 *.out
 *.app
 
-# dependencies
-build/_deps
+# cmake things
+cmake-build-debug
+build
+
+# if you use intellij idea
+.idea
