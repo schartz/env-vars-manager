@@ -62,7 +62,7 @@ It is not ready to use now.
 
 More updated shall follow soon.
 
-## Build and run the simple test driver
+## Build and run a simple test
 ```bash
 git clone https://github.com/schartz/env-vars-manager.git
 cd env-vars-manager
