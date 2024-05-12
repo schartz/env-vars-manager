@@ -16,6 +16,24 @@ DB_PASSWORD=my_secret_password
 APP_PORT=3000
 APP_HOST=0.0.0.0
 APP_SECRET=my_super_secret_key
+...
+```
+
+<details>
+
+<summary>Longer example of `.env` file</summary>
+
+```bash
+DB_HOST=localhost
+DB_PORT=5432
+DB_NAME=myapp_db
+DB_USER=myapp_user
+DB_PASSWORD=my_secret_password
+
+# Application configuration
+APP_PORT=3000
+APP_HOST=0.0.0.0
+APP_SECRET=my_super_secret_key
 
 # Email configuration (sendgrid)
 SENDGRID_API_KEY=your_sendgrid_api_key_here
@@ -50,7 +68,11 @@ LOG_LEVEL=info
 LOG_FORMAT="combined"
 LOG_TRANSPORT="console"
 ```
-Now you will have versions of this file for production, staging, testing and local development.
+
+</details>
+
+
+You will have versions of this file for production, staging, testing and local development.
 With each version having the values of keys specific to the environment.
 Each time an update requires some keys to be added to updated, it is a headache to keep track of all versions of the dotenv files.
 
