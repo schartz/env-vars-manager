@@ -18,6 +18,8 @@ int main() {
 
     std::cout << mainHashMap["hello"] << "\n";*/
 
+    //auto map_container = EnvVarsContainerMap::load("envVars.bin");
+
     EnvVarsContainerMap map_container = EnvVarsContainerMap();
     map_container.createEnvMap("dev");
 
@@ -33,19 +35,27 @@ int main() {
         ++line_no;
         line = AppUtils::trim(line);
         if(line.empty() || AppUtils::stringStartsWith(line, "#")){
-//           std::cout << "Line no " + << line_no << "is empty" << std::endl;
             continue;
         }
         std::cout << line << std::endl;
         std::vector<std::string> tokens = AppUtils::splitString(line, "=");
         map_container.putEnvVal("dev", tokens[0], tokens[1]);
+        map_container.putEnvVal("staging", tokens[0], tokens[1]);
+        map_container.putEnvVal("production", tokens[0], tokens[1]);
     }
     envFile.close();
     map_container.save();
+//    std::cout << "loaded!!!!" << std::endl;
+    auto k = map_container.listEnvs();
+    std::for_each(k.begin(), k.end(), [&](const auto &item) {
+        std::cout << item << std::endl;
+    });
+//    std::cout<<  << std::endl;
+//    std::cout << map_container.listEnvs() << std::endl;
     std::cout << map_container.getEnvVal("dev", "TOKEN_SECRET") << std::endl;
     map_container.exportEnvFile("dev");
 
-
+    auto ma_container = EnvVarsContainerMap::load("envVars.bin");
     std::cout << "EnvVarsContainerMap consumes memory: " << sizeof(map_container)
               << "\n";
 

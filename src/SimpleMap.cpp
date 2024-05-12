@@ -63,9 +63,7 @@ void SimpleMap::exportToFile(const std::string &filename) {
         outfile <<
         iter->first <<
         "=" <<
-        "'" <<
         iter->second <<
-        "'" <<
         std::endl;
     }
     outfile.close();

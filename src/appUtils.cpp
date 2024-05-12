@@ -4,10 +4,11 @@
 
 #include <vector>
 #include <string>
+#include <sstream>
 #include "appUtils.h"
 
 
-std::vector<std::string> AppUtils::splitString(std::string input_string, std::string delimiter){
+std::vector<std::string> AppUtils::splitString(std::string input_string, const std::string& delimiter){
     std::vector<std::string> substrs;
     size_t position = 0;
     std::string token;
@@ -20,10 +21,29 @@ std::vector<std::string> AppUtils::splitString(std::string input_string, std::st
     return substrs;
 }
 
-
+std::string AppUtils::join(const std::vector<std::string>& stringVector, const std::string& delimiter) {
+    std::ostringstream s;
+    for (const auto& i : stringVector) {
+        if (&i != &stringVector[0]) {
+            s << delimiter;
+        }
+        s << i;
+    }
+    return s.str();
+}
 
 bool AppUtils::stringStartsWith(const std::string& str, const std::string& prefix) {
     return str.substr(0, prefix.size()) == prefix;
+}
+
+bool AppUtils::stringEndsWith(const std::string &str, const std::string &suffix) {
+    if (&suffix == &str) return true; // str and suffix are the same string
+    if (suffix.length() > str.length()) return false;
+    size_t delta = str.length() - suffix.length();
+    for (size_t i = 0; i < suffix.length(); ++i) {
+        if (suffix[i] != str[delta + i]) return false;
+    }
+    return true;
 }
 
 // trim from left

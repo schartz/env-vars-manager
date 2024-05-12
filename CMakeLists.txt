@@ -30,7 +30,8 @@ add_executable(envVarMgr src/main.cpp
         src/SimpleMap.cpp
         src/SimpleMap.h
         src/appUtils.cpp
-        src/appUtils.h)
+        src/appUtils.h
+        src/base64.hpp)
 
 ############ Setup dependencies/libraries ####################
 

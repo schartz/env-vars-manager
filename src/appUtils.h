@@ -15,9 +15,13 @@
 
 class AppUtils{
 public:
-    static std::vector<std::string> splitString(std::string input_string, std::string delimiter);
+    static std::vector<std::string> splitString(std::string input_string, const std::string& delimiter);
 
     static bool stringStartsWith(const std::string& str, const std::string& prefix);
+
+    static bool stringEndsWith(const std::string& str, const std::string& suffix);
+
+    static std::string join(const std::vector<std::string>& stringVector, const std::string& delimiter);
 
 // trim from left
     static std::string& ltrim(std::string& s, const char* t = " \t\n\r\f\v");
